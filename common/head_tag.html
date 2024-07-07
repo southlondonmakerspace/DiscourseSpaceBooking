@@ -8,17 +8,18 @@ handle timezones (the existing calendar extension is not stellar)
 give the user the option to book "around" an existing session
 -->
 <script type="text/x-handlebars" data-template-name="modal/space-booking-modal">
-    {{#d-modal-body title="space_booking_modal_title" class="space-booking-modal"}}
+    <DModal @title="Book the space" @closeModal={{@closeModal}} class="space-booking-modal">
         <label>Start: <input type="datetime-local" name="space-booking-start"/></label>
-        <!-- <label>Hours: <input type="range" min="0.5" max="12" step="0.5" value="1"/><span id="hours_show">1.5</span></label> -->
-        <label>Hours: <select name="space-booking-hours"><option>0.5</option><option>1</option><option>1.5</option><option>2</option><option>2.5</option><option>3</option><option>3.5</option><option>4</option><option>4.5</option><option>5</option><option>5.5</option><option>6</option><option>6.5</option><option>7</option><option>7.5</option><option>8</option><option>8.5</option><option>9</option><option>9.5</option><option>10</option><option>10.5</option><option>11</option><option>11.5</option><option>12</option></select></label>
-        <!-- <label>Tool: <select name="space-booking-tool"><option>None</option><option>Laser</option></select></label> -->
-        
-        <li><button class="btn btn-primary book" disabled>Book</button></li>
-    {{/d-modal-body}}
-    </script>
+              <!-- <label>Hours: <input type="range" min="0.5" max="12" step="0.5" value="1"/><span id="hours_show">1.5</span></label> -->
+              <label>Hours: <select name="space-booking-hours"><option>0.5</option><option>1</option><option>1.5</option><option>2</option><option>2.5</option><option>3</option><option>3.5</option><option>4</option><option>4.5</option><option>5</option><option>5.5</option><option>6</option><option>6.5</option><option>7</option><option>7.5</option><option>8</option><option>8.5</option><option>9</option><option>9.5</option><option>10</option><option>10.5</option><option>11</option><option>11.5</option><option>12</option></select></label>
+              <!-- <label>Tool: <select name="space-booking-tool"><option>None</option><option>Laser</option></select></label> -->
+              
+              <li><button class="btn btn-primary book" disabled>Book</button></li>
+      </DModal>
+</script>
     
-    <script type="text/discourse-plugin" version="0.8.18">
+<script type="text/discourse-plugin" version="0.8.18">
+    debugger;
     const { iconHTML } = require("discourse-common/lib/icon-library");
     const showModal = require("discourse/lib/show-modal").default;
     const { ajax } = require("discourse/lib/ajax");
